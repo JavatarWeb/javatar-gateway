@@ -1,0 +1,34 @@
+services:
+
+  gateway:
+    image: nginx:alpine
+    container_name: javatar-gateway
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+      - ../javatar-frontend/react/dist:/usr/share/nginx/html:ro
+      - ./certs:/etc/nginx/certs:ro
+    networks:
+      - javatar-network
+    depends_on:
+      - backend
+
+  backend:
+    image: tomcat:10.1.52-jre21 
+    container_name: javatar-tomcat
+    volumes:
+    - ../javatar-backend/tomcat/conf/server.xml:/usr/local/tomcat/conf/server.xml
+    - ../javatar-backend/tomcat/conf/context.xml:/usr/local/tomcat/conf/context.xml
+    - ../javatar-backend/tomcat/conf/web.xml:/usr/local/tomcat/conf/web.xml
+    expose:
+      - "8080"
+    networks:
+      - javatar-network
+
+
+networks:
+  javatar-network:
+    driver: bridge
+
