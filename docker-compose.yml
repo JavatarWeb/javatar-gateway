@@ -14,6 +14,8 @@ services:
       - javatar-network
     depends_on:
       - backend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   backend:
     image: tomcat:10.1.52-jre21 

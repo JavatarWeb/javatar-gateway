@@ -1,7 +1,7 @@
 #!/bin/bash
 
 domain="javatar.ru"
-alldomains="javatar.ru,mail.javatar.ru"
+alldomains="javatar.ru,mail.javatar.ru,tm.javatar.ru"
 
 sudo apt update
 sudo apt install python3 python3-venv libaugeas0
