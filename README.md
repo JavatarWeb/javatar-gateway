@@ -27,3 +27,10 @@ Stop:
 ```bash
 docker compose down
 ```
+## Development mode
+
+To run containers without establishing SSL connection run
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+```
