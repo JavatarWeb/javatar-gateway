@@ -10,6 +10,7 @@ sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 
 sudo certbot certonly --standalone -d ${DOMAINS}
 
+sudo rm -rf certs/${MAIN_DOMAIN}
 sudo mkdir certs/${MAIN_DOMAIN}
 sudo cp /etc/letsencrypt/live/${MAIN_DOMAIN}/{cert.pem,chain.pem,fullchain.pem,privkey.pem} certs/${MAIN_DOMAIN}
 sudo chown -R ${USER}:users certs
