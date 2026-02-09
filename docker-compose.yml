@@ -7,7 +7,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx:/etc/nginx/conf.d:ro
+      - ./prod/nginx:/etc/nginx/conf.d:ro
       - ../javatar-frontend/react/dist:/usr/share/nginx/html:ro
       - ./certs:/etc/nginx/certs:ro
     networks:
