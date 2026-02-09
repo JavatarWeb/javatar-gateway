@@ -1,0 +1,12 @@
+services:
+  
+  gateway:
+    image: nginx:alpine
+    container_name: javatar-gateway
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./dev/nginx:/etc/nginx/conf.d:ro
+      - ../javatar-frontend/react/dist:/usr/share/nginx/html:ro
+
