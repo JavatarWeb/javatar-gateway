@@ -29,7 +29,6 @@ services:
     networks:
       - javatar-network
 
-
 networks:
   javatar-network:
     driver: bridge
